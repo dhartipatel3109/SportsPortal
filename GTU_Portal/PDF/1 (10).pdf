@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Cerificate
+</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+   
+
+    <style type="text/css">
+        p, h3, h2, h4, h5, h1 {
+            font-family: 'Bitter', serif;
+        }
+
+        /*input {
+            border: 2px solid #2C3E50;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            width: 150px;
+            color: inherit;
+            background-color: white;
+            outline: none;
+        }*/
+
+        .w3 {
+            font-family: Comic Sans, Comic Sans MS, cursive;
+        }
+
+        .b {
+            font-family: 'Times New Roman';
+        }
+    </style>
+</head>
+<body style="background-color: white">
+
+    <form method="post" action="./Certificate.aspx?WinnerName=F738MJW&amp;1st=&amp;2nd=" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="i07YDhkeYAeSVA9jN08u4JuWVZ91DAMMBbL2gAqPPk2FkThhWn7T8R5qe2/rp+YoScuy+Bwlkn2fQesnLLVF50FXk05wPrwEA+47IK+V4pPzei25zNpkOddy2gaLA6h8tWiACip8MekidU1adGLv44cvtCUsoJMj+2MiyUiIOw5at9mKygrnk3A9l7PkeG/3glujYjmi41z4v0vHKQzvFgFdIm3ITtnHHajpzjBfSXlL8q5aDAO0s8CLQM4VGcH0rAfbc97KUIrGaRixtMe81ueozvjbjM35adhqJZhupH+L4glsnRiSbPPH09j+Jnj/" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3024DFE3" />
+</div>
+        <div id="Certificate">
+            <div class="container" style="padding: 5%; text-align: center; background-color: white; border-radius: 16px; background-image: url('ri_1.png'); background-repeat: no-repeat; background-size: cover">
+                <div class="row">
+                    <div style="height: 100px">
+                        <br />
+                        <br />
+                        <img src="logo.png" style="padding-left: 20px" alt="GTU Logo" height="70px" width="90px">
+                        <!--<div style="float: right; width: 50%">
+                    <img src="GTU-Logo.PNG" style="padding-right: 20px" alt="apdo logo" height="70px" width="100px">
+                </div>-->
+                    </div>
+                    <h1 style="font-size: 35px; color: #227093">Gujarat Technical University</h1>
+                    <h3 style="font-size: 20px; color: #227093">Certificate Of <b class="b" style="color: red; font-size: 25px">Participation</b></h3>
+                    <i class="fa fa-certificate" style="font-size: 50px; color: green"></i>
+                    <h3 class="w3" style="font-size: 20px;">This Certificate is given to</h3>
+                    <h2 style="font-size: 35px; text-transform: uppercase; color: #FF3399"><span id="dname"></span>
+                        <span id="Name">Raj</span>
+                    </h2>
+                    <h3 class="w3" style="font-size: 20px;">Active student of,</h3>
+                    <h2 style="font-size: 30px; color: #054d9a"><span id="dage"></span>
+                        <span id="CollegeName">Alpha College of Engineering and Technoloy</span>
+                    </h2>
+                    <h3 class="w3" style="font-size: 20px;">has participated in <b class="b">
+                        <span id="Game">Atheletics</span>
+                    </b>competition of <b class="b">
+                        <span id="Evtname">GTU SPIRIT 1999</span>
+                    </b>.</h3>
+                    <br />
+                    <div style="display: inline-blok; height: 120px">
+                        <div style="float: left; width: 20%; border-width: 7%; margin-left: 10%">
+                            <h4>14 Feb, 2020</h4>
+                            <p style="border-bottom: 5px solid black; border: 0 0 5px 0;"></p>
+                            <h4 style="text-align: center">
+                                <span id="GameDate">10-Apr-20 12:00:00 AM</span>
+                            </h4>
+                        </div>
+                        <div style="float: right; width: 20%; border-width: 7%; margin-right: 10%">
+                            <h4>Navin Sheth</h4>
+                            <p style="border-bottom: 5px solid black; border: 0 0 5px 0;"></p>
+                            <h4 style="text-align: center">SECRETERY</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <center><input type="button" id="create_pdf" value="Generate PDF"></center>
+
+           
+            <script>
+               
+               
+            </script>
+            
+    <script src="js/html2canvas.js"></script>
+    
+
+        </div>
+    </form>
+</body>
+</html>

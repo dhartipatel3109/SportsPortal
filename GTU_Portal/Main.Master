@@ -1,0 +1,391 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="GTU_Portal.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GTU Sport Portal | Dashboard</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>    
+    <link rel="icon" type="png" href="dist/img/logo.png" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css" />
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
+    <link rel="icon" type="png" href="img/logo.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        import { Session } from "inspector";
+
+        $("#sidebar-menu li").click(
+            function () {
+                document.getElementById("#sidebar-menu").style.display = "block";
+            }
+        );
+
+
+        $(document).ready(function () {
+            $('#<%=bell.ClientID%>').click(function () {
+                debugger;
+                $('#<%=Badge.ClientID%>').hide();
+            });
+        });
+
+        <%--function clk() {
+            debugger;
+            $('#<%=Badge.ClientID%>').hide();
+        };--%>
+    </script>
+
+    <style>
+        .dropdown-menu > li .menu > li {
+            color: #444444;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px;
+            margin: 3px;
+            display: block;
+            white-space: nowrap;
+            border-bottom: 1px solid #f4f4f4;
+        }
+
+        .shakebell {
+            animation: shake 0.5s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form id="portalForm" runat="server">
+        <div>
+            <header class="main-header">
+                <a href="Dashboard.aspx" class="logo">
+                    <p class="text-primary"><strong>GTU Sport Portal</strong></p>
+                </a>
+                <nav class="navbar navbar-static-top" style="display:block; padding:0px">
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <%--Notification --%>
+                        <ul class="nav navbar-nav">
+                            <li id="noti" class="dropdown notifications-menu" runat="server">
+                                <a id="shake" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" runat="server">
+                                    <i id="bell" class="fa fa-bell-o" runat="server" onblur="clk();"></i>
+                                    <span>
+                                        <asp:Label ID="Badge" CssClass="badge badge-light" BackColor="Red" runat="server"></asp:Label></span>
+                                </a>
+                                <ul class="dropdown-menu" style="width: auto; max-width: 500px;">
+                                    <li class="header">You have
+                                        <label id="number" runat="server"></label>
+                                        Notification</li>
+                                    <li>
+                                        <ul class="menu">
+                                            <li id="I1" runat="server">
+                                                <i class="fa fa-users text-aqua" runat="server"></i>
+                                                <label id="L1" runat="server"></label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <label id="D1" style="font-weight: 400;" runat="server"></label>
+                                            </li>
+                                            <li id="I2" runat="server">
+                                                <i class="fa fa-users text-aqua" runat="server"></i>
+                                                <label id="L2" runat="server"></label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <label id="D2" style="font-weight: 400;" runat="server"></label>
+                                            </li>
+                                            <li id="I3" runat="server">
+                                                <i class="fa fa-users text-aqua" runat="server"></i>
+                                                <label id="L3" runat="server"></label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <label id="D3" style="font-weight: 400;" runat="server"></label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <asp:Image ID="Image" ImageUrl="dist/img/user2-160x160.jpg" CssClass="user-image" runat="server" />
+                                    <span class="hidden-xs">
+                                    <asp:Label ID="lblusername" runat="server" Text=""></asp:Label></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="user-header">
+                                        <asp:Image ID="UserImg" ImageUrl="dist/img/user2-160x160.jpg" CssClass="img-circle" runat="server" />
+                                        <p>
+                                            <asp:Label ID="LabelForUsername" runat="server" Text=""></asp:Label>
+                                        </p>
+                                    </li>
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-5">
+                                                <a href="Profile.aspx" class="text-light btn-flat btn btn-success">Profile</a>
+                                                <%--<asp:LinkButton ID="LinkButton2" class="text-light btn-flat btn btn-success" runat="server" OnClick="Profile_Click">Profile</asp:LinkButton>--%>
+                                            </div>
+                                            <div class="col-xs-7 text-right">
+                                                <%-- <a href="#" class="btn btn-danger btn-flat">Sign out</a>--%>
+                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-danger btn-flat" runat="server" OnClick="LinkButton1_Click">Sign Out</asp:LinkButton>
+
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <!--<li class="user-footer">
+                                    <div class="text-center">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>-->
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <asp:Image ID="UserImage" ImageUrl="dist/img/user2-160x160.jpg" CssClass="img-circle" runat="server" Height="45px" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="sidebar-menu" data-widget="tree" id="gtu_officer" runat="server" style="display: none">
+                        <li class="active">
+                            <a href="Dashboard.aspx">
+                                <i class="fa fa-home"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-shield"></i>
+                                <span>Admin</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="College.aspx"><i class="fa fa-graduation-cap"></i>College</a></li>
+                                <li><a href="Users.aspx"><i class="fa fa-user"></i>Users</a></li>
+                                <li class="treeview"><a href="#"><i class="fa fa-table"></i>Masters
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="Branch.aspx"><i class="fa fa-circle-o"></i>Branch Master</a></li>
+                                        <li><a href="City.aspx"><i class="fa fa-circle-o"></i>City Master</a></li>
+                                        <li><a href="State.aspx"><i class="fa fa-circle-o"></i>State Master</a></li>
+                                        <li><a href="Zone.aspx"><i class="fa fa-circle-o"></i>Zone Master</a></li>
+                                        <li><a href="Game.aspx"><i class="fa fa-circle-o"></i>Game Master</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i>
+                                <span>GTU Events</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="Event.aspx"><i class="fa fa-list-ul"></i>Event List</a></li>
+                                <li><a href="Loi.aspx"><i class="fa fa-file-pdf-o"></i>List of LOIs<span style="float: right;"><asp:Label ID="LOI" CssClass="badge badge-danger navbar-badge" BackColor="Red" runat="server"></asp:Label></span></a></li>
+                                <li><a href="Observer_Report.aspx"><i class="fa fa-file-pdf-o"></i>Inbox(Observer Report)<span style="float: right;"><asp:Label ID="Report" CssClass="badge badge-danger navbar-badge" BackColor="Red" runat="server"></asp:Label></span></a></li>
+                                <li><a href="chk.aspx"><i class="fa fa-gavel"></i>Distribute Turnament</a></li>
+                                <li><a href="LiveEvent.aspx"><i class="fa fa-bars" aria-hidden="true"></i>Live Events</a></li>
+                                <li><a href="Eligibility.aspx"><i class="fa fa-futbol-o" aria-hidden="true"></i>Eligibility/Student Record</a></li>
+                                <li><a href="OfficeOrderForm.aspx"><i class="fa fa-flag" aria-hidden="true"></i>Office Order</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-history"></i>
+                                <span>History/Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="Reports.aspx"><i class="fa fa-bullhorn"></i>Event History</a></li>
+                                <li><a href="#"><i class="fa fa-adjust"></i>Student History</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>CMS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="AboutUs.aspx"><i class="fa fa-bullhorn"></i>About Us</a></li>
+                                <li><a href="MissionStatement.aspx"><i class="fa fa-plane"></i>Mission Statement</a></li>
+                                <li><a href="Notification.aspx"><i class="fa fa-bell"></i>Send Circular</a></li>
+                                <li><a href="AddPhoto.aspx"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Photo to Gallery</a></li>
+                                <li><a href="ContactUs.aspx"><i class="fa fa-comments-o"></i>Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <%--<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-university"></i>
+                            <span>College Events</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="RequestEvent.aspx"><i class="fa fa-align-center"></i>Request Event</a></li>
+                            <li><a href="#"><i class="fa fa-hand-o-right"></i>Manage Event</a></li>
+                            <li><a href="Registration.aspx"><i class="fa fa-check-circle-o"></i>Registration of Student</a></li>
+                        </ul>
+                    </li>--%>
+                    </ul>
+
+                    <ul class="sidebar-menu" data-widget="tree" id="college_manager" runat="server" style="display: none">
+                        <li class="active">
+                            <a href="Dashboard.aspx">
+                                <i class="fa fa-home"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-university"></i>
+                                <span>College Events</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <%--<li><a href="Home.aspx"><i class="fa fa-bell"></i>Notification <asp:label ID="Badge" CssClass="badge badge-light" runat="server" value="" ToolTip="You Got New Notification"></asp:label></a></li>--%>
+                                <li><a href="RequestEvent.aspx"><i class="fa fa-align-center"></i>Letter of Interest</a></li>
+                                <%--<li><a href="Loi2.aspx"><i class="fa fa-file-pdf-o"></i>List of LOIs<span style="float: right;"><asp:Label ID="LOI2" CssClass="badge badge-danger navbar-badge" BackColor="Red" runat="server"></asp:Label></span></a></li>--%>
+                                <li><a href="ManageEventExtra.aspx"><i class="fa fa-hand-o-right"></i>Organising</a></li>
+                                <%--<li><a href="UploadCertificateExtra.aspx"><i class="fa fa-certificate"></i>Upload Certificate</a></li>--%>
+                                <li><a href="WebForm29.aspx"><i class="fa fa-gamepad"></i>Registration of Student</a></li>
+                                <li><a href="StudentCard.aspx"><i class="fa fa-address-card"></i>Student iCards</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+                    <ul class="sidebar-menu" data-widget="tree" id="observer" runat="server" style="display: none">
+                        <li class="active">
+                            <a href="Dashboard.aspx">
+                                <i class="fa fa-home"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-server"></i>
+                                <span>Observe Events</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <%--<li><a href="Home.aspx"><i class="fa fa-bell"></i>Notification <asp:label ID="Badge" CssClass="badge badge-light" runat="server" value="" ToolTip="You Got New Notification"></asp:label></a></li>--%>
+                                <%--<li><a href="RequestEvent.aspx"><i class="fa fa-align-center"></i>Request Event</a></li>--%>
+                                <li><a href="ObserverOrderForm.aspx"><i class="fa fa-flag"></i>Observer Report</a></li>
+                                <li><a href="ObserveGame.aspx"><i class="fa fa-thumb-tack"></i>Student Data</a></li>
+                                <li><a href="UploadCertificate.aspx"><i class="fa fa-certificate"></i>Upload Certicate</a></li>
+                                <li><a href="StudentHistory.aspx"><i class="fa fa-history"></i>Student History</a></li>
+                                <%--<li><a href="Registration.aspx"><i class="fa fa-check-circle-o"></i>Registration of Student</a></li>--%>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer class="main-footer">
+                <strong>Copyright &copy; 2019-2020. GTU Sports Portal.</strong> All rights reserved.
+            </footer>
+
+            <script src="bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="dist/js/adminlte.min.js"></script>
+            <script src="dist/js/pages/dashboard2.js"></script>
+
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        </div>
+    </form>
+</body>
+</html>
